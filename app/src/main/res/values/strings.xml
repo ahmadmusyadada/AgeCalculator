@@ -23,6 +23,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="date_today">Date today</string>
-    <string name="display_date">Display date today</string>
+    <string name="date_today">Display date</string>
+    <string name="display_date">Todays Date</string>
+    <string name="birthday_date">Date of Birth</string>
 </resources>
