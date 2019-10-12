@@ -108,7 +108,7 @@ public class BirthdayFragment extends Fragment {
                 DateTime todayDateTime = convertToDateTime(getTodayDate);
                 DateTime birthdayDateTime = convertToDateTime(getBirthdayDate);
                 displayCurrentBirthday(todayDateTime, birthdayDateTime);
-//                displayNextBirthday(todayDateTime, birthdayDateTime);
+                displayNextBirthday(todayDateTime, birthdayDateTime);
 //                displayAgeAnalysis(todayDateTime, birthdayDateTime);
             }
         });
@@ -118,8 +118,8 @@ public class BirthdayFragment extends Fragment {
     private DateTime convertToDateTime(String stringToConvert) {
         String[] newStringArray = convertStringToArray(stringToConvert);
         int year = Integer.parseInt(newStringArray[2].trim());
-        int day = Integer.parseInt(newStringArray[1].trim());
-        int month = Integer.parseInt(newStringArray[0].trim());
+        int day = Integer.parseInt(newStringArray[0].trim());
+        int month = Integer.parseInt(newStringArray[1].trim());
         LocalDate mLocalDate = new LocalDate(year, month, day);
         DateTime firstDateTime = mLocalDate.toDateTime(LocalTime.fromDateFields(mLocalDate.toDate()));
         return firstDateTime;
