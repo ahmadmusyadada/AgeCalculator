@@ -92,7 +92,120 @@
                 android:textStyle="bold"
                 android:textSize="16sp"
                 />
-
+            <LinearLayout
+                android:id="@+id/button_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/second_layout_wrapper"
+                android:layout_marginTop="32dp"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/button_calculate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:padding="16dp"
+                    android:text="@string/calculation_text"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"/>
+                <Button
+                    android:id="@+id/button_clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center_horizontal"
+                    android:padding="16dp"
+                    android:layout_marginLeft="1dp"
+                    android:text="@string/clear_results"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/age_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:layout_below="@+id/button_wrapper"
+                android:layout_marginTop="32dp"
+                android:text="@string/current_age"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                />
+            <TableLayout
+                android:id="@+id/age_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/age_header">
+                <TableRow
+                    android:padding="24dp">
+                    <TextView
+                        android:id="@+id/years_in_age"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|center_horizontal"
+                        android:text="@string/years_number"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/months_in_age"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|center_horizontal"
+                        android:text="@string/months_number"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/days_in_age"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|center_horizontal"
+                        android:text="@string/days_number"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </TableRow>
+            </TableLayout>
+            <TextView
+                android:id="@+id/next_birthday_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:layout_below="@+id/age_table"
+                android:layout_marginTop="32dp"
+                android:text="@string/next_birthday"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                />
+            <TableLayout
+                android:id="@+id/next_age_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/next_birthday_header">
+                <TableRow
+                    android:padding="24dp">
+                    <TextView
+                        android:id="@+id/years_in_birthday"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|center_horizontal"
+                        android:text="@string/years_number"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/months_in_birthday"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|center_horizontal"
+                        android:text="@string/months_number"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/days_in_birthday"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|center_horizontal"
+                        android:text="@string/days_number"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </TableRow>
+            </TableLayout>
         </RelativeLayout>
     </ScrollView>
 </FrameLayout>

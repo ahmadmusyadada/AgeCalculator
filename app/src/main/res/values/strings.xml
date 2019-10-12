@@ -26,4 +26,11 @@
     <string name="date_today">Display date</string>
     <string name="display_date">Todays Date</string>
     <string name="birthday_date">Date of Birth</string>
+    <string name="calculation_text">Calculate</string>
+    <string name="clear_results">Clear</string>
+    <string name="current_age">Displayed Age</string>
+    <string name="years_number">Years</string>
+    <string name="months_number">Months</string>
+    <string name="days_number">Days</string>
+    <string name="next_birthday">Next Birthday</string>
 </resources>
