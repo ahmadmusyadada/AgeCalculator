@@ -144,8 +144,14 @@ public class BirthdayFragment extends Fragment {
         Calendar mCalendar = Calendar.getInstance();
         int year = mCalendar.get(Calendar.YEAR);
         DateTime nextBirthday = birthdayDate.withYear(year);
+        DateTime dateToday2 = dateToday.withYear(year);
         Toast.makeText(getActivity(), "Birthday " + nextBirthday.getYear(), Toast.LENGTH_LONG).show();
-        Period dateDifferencePeriod = displayBirthdayResult(nextBirthday, dateToday);
+        Period dateDifferencePeriod;
+        if (dateToday2.compareTo(nextBirthday) < 0) {
+            dateDifferencePeriod = displayBirthdayResult(nextBirthday, dateToday2);
+        } else {
+            dateDifferencePeriod = displayBirthdayResult(nextBirthday.plusYears(1), dateToday2);
+        }
         int getDateInDays = dateDifferencePeriod.getDays();
         int getDateInMonths = dateDifferencePeriod.getMonths();
         int getDateInYears = dateDifferencePeriod.getYears();
