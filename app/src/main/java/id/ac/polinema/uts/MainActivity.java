@@ -44,13 +44,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                     return true;
                 }
         }
-//        if (fragment != null) {
-//            getSupportFragmentManager().beginTransaction()
-//                    .replace(R.id.fragment_container, fragment)
-//                    .addToBackStack(null)
-//                    .commit();
-//            return true;
-//        }
         return false;
     }
 
@@ -61,19 +54,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         switch (menuItem.getItemId()) {
             case R.id.action_calculator:
                 fragment = "birthdayFragment";
-//                if (getSupportFragmentManager().findFragmentByTag("BirthdayFragment") != null){
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, birthdayFragment).commit();
-//                } else {
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, birthdayFragment, "BirthdayFragment").addToBackStack(null).commit();
-//                }
                 break;
             case R.id.action_analysis:
                 fragment = "detailFragment";
-//                if (getSupportFragmentManager().findFragmentByTag("DetailFragment") != null){
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment).commit();
-//                } else {
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment, "DetailFragment").addToBackStack(null).commit();
-//                }
                 break;
         }
         return loadFragment(fragment);

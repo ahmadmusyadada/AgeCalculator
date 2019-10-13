@@ -18,6 +18,7 @@ import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 import org.joda.time.Period;
 import org.joda.time.PeriodType;
+import org.joda.time.Weeks;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,7 +32,7 @@ import id.ac.polinema.uts.R;
 public class DetailFragment extends Fragment {
     TextView dateSelected, totalDayResult, totalWeekResult, totalMonthResult, totalYearResult,
             totalHourResult, totalMinuteResult, totalSecondResult, zodiacResult;
-    Button calculateButton;
+    Button calculateButton, clearButton;
     Calendar calendar;
     DatePickerDialog dpd;
 
@@ -55,6 +56,7 @@ public class DetailFragment extends Fragment {
         totalMinuteResult = view.findViewById(R.id.total_minutes_result);
         totalSecondResult = view.findViewById(R.id.total_seconds_result);
         zodiacResult = view.findViewById(R.id.zodiac_result);
+        clearButton = view.findViewById(R.id.button_clear);
 
         dateSelected.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +84,20 @@ public class DetailFragment extends Fragment {
                 displayAgeAnalysis(birthdayDate);
             }
         });
+
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                totalDayResult.setText("0");
+                totalWeekResult.setText("0");
+                totalMonthResult.setText("0");
+                totalYearResult.setText("0");
+                totalHourResult.setText("0");
+                totalMinuteResult.setText("0");
+                totalSecondResult.setText("0");
+                zodiacResult.setText("Pig");
+            }
+        });
         return view;
     }
 
@@ -92,7 +108,7 @@ public class DetailFragment extends Fragment {
         DateTime todayDateTime = convertToDateTime(dateToday);
         Period dateDifferencePeriod = displayBirthdayResult(todayDateTime, birthdayDate);
         int getDateInDays = dateDifferencePeriod.getDays();
-        float getDateInWeeks = (float) getDateInDays / 7;
+        float getDateInWeeks = (float) getDateInDays / 7 + Weeks.weeksBetween(new DateTime(birthdayDate), new DateTime(todayDateTime)).getWeeks();
         int getDateInMonths = dateDifferencePeriod.getMonths();
         int getDateInYears = dateDifferencePeriod.getYears();
         int mDay = getDateInDays;

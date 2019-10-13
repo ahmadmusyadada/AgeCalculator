@@ -33,7 +33,7 @@ public class BirthdayFragment extends Fragment {
     TextView currentDate, dateBirthday,
             currentBirthdayDay, currentBirthdayMonth, currentBirthdayYear,
             nextBirthdayDay, nextBirthdayMonth, nextBirthdayYear;
-    Button calculateButton;
+    Button calculateButton, clearButton;
 
     Calendar calendar;
     DatePickerDialog dpd;
@@ -58,6 +58,7 @@ public class BirthdayFragment extends Fragment {
         nextBirthdayDay = view.findViewById(R.id.days_in_birthday);
         nextBirthdayMonth = view.findViewById(R.id.months_in_birthday);
         nextBirthdayYear = view.findViewById(R.id.years_in_birthday);
+        clearButton = view.findViewById(R.id.button_clear);
 
         Date c = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -109,7 +110,18 @@ public class BirthdayFragment extends Fragment {
                 DateTime birthdayDateTime = convertToDateTime(getBirthdayDate);
                 displayCurrentBirthday(todayDateTime, birthdayDateTime);
                 displayNextBirthday(todayDateTime, birthdayDateTime);
-//                displayAgeAnalysis(todayDateTime, birthdayDateTime);
+            }
+        });
+
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentBirthdayDay.setText("");
+                currentBirthdayMonth.setText("");
+                currentBirthdayYear.setText("");
+                nextBirthdayDay.setText("");
+                nextBirthdayMonth.setText("");
+                nextBirthdayYear.setText("");
             }
         });
         return view;
