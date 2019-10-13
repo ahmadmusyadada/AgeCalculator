@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="60dp"
         android:background="#ffffff"
         android:scrollbars="none">
         <RelativeLayout
@@ -141,6 +141,24 @@
                 </TableRow>
                 <TableRow android:padding="8dp">
                     <TextView
+                        android:id="@+id/total_weeks"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/total_weeks"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/total_weeks_result"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/zero"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow android:padding="8dp">
+                    <TextView
                         android:id="@+id/total_days"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -208,6 +226,24 @@
                         android:layout_weight="1"
                         android:gravity="left"
                         android:text="@string/zero"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </TableRow>
+                <TableRow android:padding="8dp">
+                    <TextView
+                        android:id="@+id/zodiac"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/zodiac"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/zodiac_result"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/none"
                         android:textSize="16dp"
                         android:textStyle="bold" />
                 </TableRow>

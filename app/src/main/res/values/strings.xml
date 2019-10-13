@@ -41,4 +41,7 @@
     <string name="total_hours">Total Hours</string>
     <string name="total_minutes">Total Minutes</string>
     <string name="total_seconds">Total Seconds</string>
+    <string name="total_weeks">Total Weeks</string>
+    <string name="zodiac">Zodiac</string>
+    <string name="none">Pig</string>
 </resources>
