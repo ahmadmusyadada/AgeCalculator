@@ -33,4 +33,12 @@
     <string name="months_number">Months</string>
     <string name="days_number">Days</string>
     <string name="next_birthday">Next Birthday</string>
+    <string name="age_analysis">Age Analysis</string>
+    <string name="total_years">Total Years</string>
+    <string name="zero">0</string>
+    <string name="total_months">Total Months</string>
+    <string name="total_days">Total Days</string>
+    <string name="total_hours">Total Hours</string>
+    <string name="total_minutes">Total Minutes</string>
+    <string name="total_seconds">Total Seconds</string>
 </resources>
