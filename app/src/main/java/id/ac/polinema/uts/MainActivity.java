@@ -1,53 +1,79 @@
 package id.ac.polinema.uts;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
-import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.DatePicker;
-import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.Calendar;
 
 import id.ac.polinema.uts.fragments.BirthdayFragment;
 import id.ac.polinema.uts.fragments.DetailFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+    BirthdayFragment birthdayFragment;
+    DetailFragment detailFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        birthdayFragment = new BirthdayFragment();
+        detailFragment = new DetailFragment();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loadFragment(new BirthdayFragment());
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, birthdayFragment).commit();
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
     }
 
-    private boolean loadFragment(Fragment fragment) {
-        if (fragment != null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
-                    .addToBackStack(null)
-                    .commit();
-            return true;
+    private boolean loadFragment(String fragment) {
+        switch (fragment){
+            case "birthdayFragment":
+                if (getSupportFragmentManager().findFragmentByTag("BirthdayFragment") != null){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, birthdayFragment).commit();
+                    return true;
+                } else {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, birthdayFragment, "BirthdayFragment").addToBackStack(null).commit();
+                    return true;
+                }
+            case "detailFragment":
+                if (getSupportFragmentManager().findFragmentByTag("DetailFragment") != null){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment).commit();
+                    return true;
+                } else {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment, "DetailFragment").addToBackStack(null).commit();
+                    return true;
+                }
         }
+//        if (fragment != null) {
+//            getSupportFragmentManager().beginTransaction()
+//                    .replace(R.id.fragment_container, fragment)
+//                    .addToBackStack(null)
+//                    .commit();
+//            return true;
+//        }
         return false;
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        Fragment fragment = null;
+        String fragment = null;
+
         switch (menuItem.getItemId()) {
             case R.id.action_calculator:
-                fragment = new BirthdayFragment();
+                fragment = "birthdayFragment";
+//                if (getSupportFragmentManager().findFragmentByTag("BirthdayFragment") != null){
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, birthdayFragment).commit();
+//                } else {
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, birthdayFragment, "BirthdayFragment").addToBackStack(null).commit();
+//                }
                 break;
             case R.id.action_analysis:
-                fragment = new DetailFragment();
+                fragment = "detailFragment";
+//                if (getSupportFragmentManager().findFragmentByTag("DetailFragment") != null){
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment).commit();
+//                } else {
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailFragment, "DetailFragment").addToBackStack(null).commit();
+//                }
                 break;
         }
         return loadFragment(fragment);
