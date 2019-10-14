@@ -64,6 +64,7 @@ public class BirthdayFragment extends Fragment {
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         String formattedDate = df.format(c);
         currentDate.setText(formattedDate);
+        dateBirthday.setText(formattedDate);
 
         currentDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,8 +109,12 @@ public class BirthdayFragment extends Fragment {
                 String getBirthdayDate = dateBirthday.getText().toString();
                 DateTime todayDateTime = convertToDateTime(getTodayDate);
                 DateTime birthdayDateTime = convertToDateTime(getBirthdayDate);
-                displayCurrentBirthday(todayDateTime, birthdayDateTime);
-                displayNextBirthday(todayDateTime, birthdayDateTime);
+                if (todayDateTime.compareTo(birthdayDateTime) < 0) {
+                    Toast.makeText(getActivity(), "Anda belum lahir!", Toast.LENGTH_SHORT).show();
+                } else {
+                    displayCurrentBirthday(todayDateTime, birthdayDateTime);
+                    displayNextBirthday(todayDateTime, birthdayDateTime);
+                }
             }
         });
 

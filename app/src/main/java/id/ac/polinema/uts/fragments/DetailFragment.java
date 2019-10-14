@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -58,6 +59,12 @@ public class DetailFragment extends Fragment {
         zodiacResult = view.findViewById(R.id.zodiac_result);
         clearButton = view.findViewById(R.id.button_clear);
 
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        String formattedDate = df.format(c);
+        dateSelected.setText(formattedDate);
+        final DateTime todayDateTime = convertToDateTime(formattedDate);
+
         dateSelected.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,7 +88,12 @@ public class DetailFragment extends Fragment {
             public void onClick(View v) {
                 String getTodayDate = dateSelected.getText().toString();
                 DateTime birthdayDate = convertToDateTime(getTodayDate);
-                displayAgeAnalysis(birthdayDate);
+
+                if (todayDateTime.compareTo(birthdayDate) < 0) {
+                    Toast.makeText(getActivity(), "Anda belum lahir!", Toast.LENGTH_SHORT).show();
+                } else {
+                    displayAgeAnalysis(birthdayDate);
+                }
             }
         });
 
