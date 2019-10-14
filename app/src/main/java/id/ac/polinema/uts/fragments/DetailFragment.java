@@ -123,7 +123,7 @@ public class DetailFragment extends Fragment {
         float getDateInWeeks = (float) getDateInDays / 7 + Weeks.weeksBetween(new DateTime(birthdayDate), new DateTime(todayDateTime)).getWeeks();
         int getDateInMonths = dateDifferencePeriod.getMonths();
         int getDateInYears = dateDifferencePeriod.getYears();
-        int mDay = getDateInDays;
+        int mDay = getDateInDays + (getDateInMonths * 30) + (getDateInYears * 365);
         int mMonth = getDateInMonths + (getDateInYears * 12);
         int hours = mDay * 24;
         int minutes = mDay * 24 * 60;
